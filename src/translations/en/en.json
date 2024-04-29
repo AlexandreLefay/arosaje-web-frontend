@@ -1,0 +1,19 @@
+{
+  "common": {
+    "message": {
+      "welcome": "Welcome",
+      "selectLanguage": "Select your language"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The page you are looking for could doesn't exist or has been removed",
+    "button": {
+      "redirect": "Go back to a safe place"
+    }
+  },
+  "language": {
+    "fr": "French",
+    "en": "English"
+  }
+}

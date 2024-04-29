@@ -1,0 +1,61 @@
+@use '@styles/variables.module.scss';
+@use '@styles/fonts.module.scss';
+@use '@styles/colors.module.scss';
+@use '@styles/mixins.scss';
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  transition: opacity, z-index, color ease-in-out 0.3s;
+}
+
+body {
+  box-sizing: border-box;
+  display: block;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: fonts.$font-family;
+  clear: both;
+  margin: 0;
+  // to avoid the problem that the scrollbar
+  // will push the content to the left when we click on select
+  padding: 0 !important;
+}
+
+html {
+  max-width: 100vw;
+  scroll-behavior: smooth;
+}
+
+// custom scrollbar for webkit (chrome, safari, opera)
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2rem;
+  background-color: colors.$scrollbar-background-color;
+  -webkit-box-shadow: 0 0 1px colors.$scrollbar-box-shadow-color;
+}
+
+.wrapAnywhere {
+  overflow-wrap: anywhere;
+}
+
+/** Apply when your text can overflowing and you want to cut the text with ... */
+.overflowEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/** Center all our loader */
+.loader {
+  margin: auto;
+}

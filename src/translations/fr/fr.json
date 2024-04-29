@@ -1,0 +1,19 @@
+{
+  "common": {
+    "message": {
+      "welcome": "Bienvenue",
+      "selectLanguage": "Sélectionnez votre langue"
+    }
+  },
+  "notFound": {
+    "title": "Page indisponible",
+    "message": "La page que vous essayez de consulter n'existe pas ou a été supprimée",
+    "button": {
+      "redirect": "Revenir en lieu sûr"
+    }
+  },
+  "language": {
+    "fr": "Français",
+    "en": "Anglais"
+  }
+}

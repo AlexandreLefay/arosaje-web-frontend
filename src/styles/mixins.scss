@@ -1,0 +1,55 @@
+@use '@styles/variables.module.scss';
+
+@mixin for-phone-only {
+  @media (max-width: variables.$breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-up {
+  @media (min-width: variables.$breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-only {
+  @media (min-width: variables.$breakpoint-small) and (max-width: variables.$breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-up {
+  @media (min-width: variables.$breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-only {
+  @media (min-width: variables.$breakpoint-medium) and (max-width: variables.$breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin for-laptop-up {
+  @media (min-width: variables.$breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin for-laptop-only {
+  @media (min-width: variables.$breakpoint-large) and (max-width: variables.$breakpoint-extra-large) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media (min-width: variables.$breakpoint-extra-large) {
+    @content;
+  }
+}
+
+@mixin for-all-except-mobile {
+  @media (min-width: variables.$breakpoint-small) {
+    @content;
+  }
+}

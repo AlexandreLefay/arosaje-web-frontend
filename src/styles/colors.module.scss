@@ -1,0 +1,75 @@
+$primary: #225883;
+$primary-light: #397bb0;
+$not-provided-data: #787575;
+$grey-text: #757575;
+$white: #ffffff;
+$app-background: #fafafa;
+$default-font: #484848;
+$default-font-transparent: rgba(#484848d2, 0.8);
+$data-information: rgba(#000000, 0.6);
+$chips-background: #696d70;
+$list-item-border: #eeeeee;
+
+$blue-variant-dark: #2196f3;
+$blue-variant-extra-light: rgba($blue-variant-dark, 0.04);
+$blue-variant-light: rgba($blue-variant-dark, 0.08);
+$blue-variant-main: rgba($blue-variant-dark, 0.5);
+
+/** Scrollbar */
+$scrollbar-background-color: #19191e4d;
+$scrollbar-box-shadow-color: hsl(0deg 0% 100% / 50%);
+
+/** MUI colors */
+$mui-warning-main: #ef6c00;
+$mui-info-main: #0288d1;
+$mui-success-main: #2a9a2f;
+$mui-error-main: #d32f2f;
+
+/** Alert snackbar colors */
+$alert-warning-bg: #fff4e5;
+$alert-info-bg: #e5f6fd;
+$alert-success-bg: #edf7ed;
+$alert-error-bg: #fdeded;
+
+$alert-warning-message: #663c00;
+$alert-info-message: #014361;
+$alert-success-message: #1e4620;
+$alert-error-message: #5f2120;
+
+$alert-warning-icon: $mui-warning-main;
+$alert-info-icon: $mui-info-main;
+$alert-success-icon: $mui-success-main;
+$alert-error-icon: $mui-error-main;
+
+:export {
+  primary: $primary;
+  primaryLight: $primary-light;
+
+  blueVariantLight: $blue-variant-light;
+  blueVariantMain: $blue-variant-main;
+  blueVariantDark: $blue-variant-dark;
+  defaultFont: $default-font;
+  dataInformation: $data-information;
+
+  appBackground: $app-background;
+
+  muiWarningMain: $mui-warning-main;
+  muiInfoMain: $mui-info-main;
+  muiSuccessMain: $mui-success-main;
+  muiErrorMain: $mui-error-main;
+
+  alertWarningBg: $alert-warning-bg;
+  alertInfoBg: $alert-info-bg;
+  alertSuccessBg: $alert-success-bg;
+  alertErrorBg: $alert-error-bg;
+
+  alertWarningMessage: $alert-warning-message;
+  alertInfoMessage: $alert-info-message;
+  alertSuccessMessage: $alert-success-message;
+  alertErrorMessage: $alert-error-message;
+
+  alertWarningIcon: $mui-warning-main;
+  alertInfoIcon: $mui-info-main;
+  alertSuccessIcon: $mui-success-main;
+  alertErrorIcon: $mui-error-main;
+}

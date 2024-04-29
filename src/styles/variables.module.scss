@@ -1,0 +1,23 @@
+/* App */
+$app-page-padding: 32px;
+
+/* Alerting */
+$app-alert-icon-size: 18px;
+$app-alert-icon-margin-right: 4px;
+
+/* Responsive */
+$breakpoint-extra-small: 0px;
+$breakpoint-small: 600px;
+$breakpoint-medium: 900px;
+$breakpoint-large: 1200px;
+$breakpoint-extra-large: 1536px;
+
+:export {
+  appAlertIconSize: $app-alert-icon-size;
+  appAlertIconMarginR: $app-alert-icon-margin-right;
+  breakpointExtraSmall: $breakpoint-extra-small;
+  breakpointSmall: $breakpoint-small;
+  breakpointMedium: $breakpoint-medium;
+  breakpointLarge: $breakpoint-large;
+  breakpointExtraLarge: $breakpoint-extra-large;
+}
