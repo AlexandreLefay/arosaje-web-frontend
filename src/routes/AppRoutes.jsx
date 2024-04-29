@@ -1,20 +1,18 @@
-import Home from '@pages/Home/Home';
-import { NotFound } from '@pages/NotFound/NotFound';
-import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
+import {NotFound} from '@pages/NotFound/NotFound';
+import {Login} from '@pages/Login/Login';
+import {createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom';
 import Layout from './components/Layout';
 
 /**
- * Variable used to handle all the routes of the application
- *
- * @param queryClient queryClient
+ * Crée et retourne un routeur pour l'application en utilisant createBrowserRouter.
  */
 export const router = () =>
   createBrowserRouter(
     createRoutesFromElements(
       <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="/not-found" element={<NotFound />} />
-        {/** Unknown path redirection */}
+        {/** Redirect user when not found page */}
         <Route path="*" element={<NotFound />} />
       </Route>
     )
