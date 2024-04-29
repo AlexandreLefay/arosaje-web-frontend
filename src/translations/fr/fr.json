@@ -1,7 +1,7 @@
 {
   "common": {
     "message": {
-      "welcome": "Bienvenue",
+      "welcome": "Bienvenue sur mon template React + TypeScript (ESLint & Prettier configuration inclus).",
       "selectLanguage": "Sélectionnez votre langue"
     }
   },

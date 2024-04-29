@@ -3,7 +3,7 @@ import colors from '@styles/colors.module.scss';
 import fonts from '@styles/fonts.module.scss';
 import variables from '@styles/variables.module.scss';
 
-const getValueFromSassPxVar = (variable) => Number(variable.slice(0, -2));
+const getValueFromSassPxVar = (variable: string) => Number(variable.slice(0, -2));
 
 /**
  * MUI configuration to custom the provided default theme

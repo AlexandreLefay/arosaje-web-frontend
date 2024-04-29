@@ -5,14 +5,14 @@ import { useTranslation } from 'react-i18next';
 /**
  * Page that contains all the components displayed on the application homepage
  */
-export default function Home() {
+export const Welcome = () => {
   const { t, i18n } = useTranslation();
 
   /**
    * Handle the translation of our app by giving the corresponding language key
    * @param lng key used to switch the i18n language according to the translation file located in /translations/${lng}/${lng}.json
    */
-  const handleTranslate = (lng) => {
+  const handleTranslate = (lng: string | undefined) => {
     if (i18n.language !== lng) {
       i18n.changeLanguage(lng);
     }
@@ -37,4 +37,4 @@ export default function Home() {
       </Stack>
     </>
   );
-}
+};

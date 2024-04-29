@@ -1,12 +1,12 @@
 # React Template
 
-Project create from quentinvdr's template for React school projects.
+Alex setup React Typescript project
 
 ## Installation and Start
 
 - Clone the project
 - Navigate to the project directory
-- Add .env file in the root directory (see .env.example)
+- Add .env file in the root directory
 - Run these commands
 
 ```bash
@@ -27,20 +27,23 @@ This project follows a specific structure for organization and ease of navigatio
 
 - 📁 `public`: This directory contains all static files like favicon, manifest, images, etc.
 - 📁 `src`: This is the main directory that contains the project source code. It includes:
-  - 📁 `api`: This directory contains all the requests (fetch).
-  - 📁 `components`: This directory contains all the React components (business logic). Each component has its own directory with the following structure:
-    - 📄 `{ComponentName}.jsx`: The main component file.
-    - 📄 `{ComponentName}.module.scss`: The component's style file, scoped to the component.
-  - 📁 `global`: This directory contains components used in multiple pages, such as headers & footers. Each global component has its own directory with the following structure:
-    - 📄 `{ComponentName}.jsx`: The main component file.
-    - 📄 `{ComponentName}.module.scss`: The component's style file, scoped to the component.
-  - 📁 `pages`: This directory contains React pages. The business logic is in the components.
-  - 📁 `routes`: This directory contains the routes (react-router).
-  - 📁 `stores`: This directory contains the store keys (react-query).
-  - 📁 `styles`: This directory contains global styles (variables, theme, etc.).
-  - 📁 `translations`: This directory contains translations (i18n).
-  - 📁 `utils`: This directory contains utilities (reusable functions, etc.).
-  - 📄 `main.jsx`: This is the main project file and the entry point of the project.
+    - 📁 `api`: This directory contains all the requests (fetch).
+    - 📁 `components`: This directory contains all the React components (business logic). Each component has its own
+      directory with the following structure:
+        - 📄 `{ComponentName}.jsx`: The main component file.
+        - 📄 `{ComponentName}.module.scss`: The component's style file, scoped to the component.
+    - 📁 `global`: This directory contains components used in multiple pages, such as headers & footers. Each global
+      component has its own directory with the following structure:
+        - 📄 `{ComponentName}.jsx`: The main component file.
+        - 📄 `{ComponentName}.module.scss`: The component's style file, scoped to the component.
+    - 📁 `pages`: This directory contains React pages. The business logic is in the components.
+    - 📁 `routes`: This directory contains the routes (react-router).
+    - 📁 `stores`: This directory contains the store keys (react-query).
+    - 📁 `styles`: This directory contains global styles (variables, theme, etc.).
+    - 📁 `translations`: This directory contains translations (i18n).
+    - 📁 `types`: This directory contains all types.
+    - 📁 `utils`: This directory contains utilities (reusable functions, etc.).
+    - 📄 `main.tsx`: This is the main project file and the entry point of the project.
 - 📄 `package.json`: This is the project configuration file.
 
 ## Librairies
@@ -62,17 +65,20 @@ Internalization :
 
 Data management :
 
-- [React-Query](https://tanstack.com/query/v4/docs/react/overview) → Async data fetching and caching (Cache, Promise state management, etc)
+- [Mobx](https://tanstack.com/query/v4/docs/react/overview) → Async data fetching and caching (Cache, Promise state
+  management, etc)
 - [Axios](https://axios-http.com/fr/docs/intro) → HTTP client based on Promise to communicate with the Back-end part
 
 Routing :
 
-- [React-router-dom](https://reactrouter.com/web/guides/quick-start) → Library used to manage routing and navigation between the pages of the application
+- [React-router-dom](https://reactrouter.com/web/guides/quick-start) → Library used to manage routing and navigation
+  between the pages of the application
 
 CSS :
 
 - [Material UI](https://mui.com/) → UI Library components
-- [Sass](https://sass-lang.com/) → CSS preprocessor that adds features to CSS. It allows, among other things, to better structure and simplify the code, to avoid repetitions, etc
+- [Sass](https://sass-lang.com/) → CSS preprocessor that adds features to CSS. It allows, among other things, to better
+  structure and simplify the code, to avoid repetitions, etc
 
 Icons :
 

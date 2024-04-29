@@ -1,0 +1,79 @@
+/**
+ * All the rules available can be checked at : https://www.typescriptlang.org/tsconfig
+ */
+{
+  "compilerOptions": {
+    "noEmit": true,
+    //Typescript will be used only as a type checker
+    "module": "ES2022",
+    //Specify module code generation
+    "target": "ES2022",
+    // Specify ECMAScript target version
+    "lib": ["DOM", "DOM.Iterable", "ES2023"],
+    "moduleResolution": "bundler",
+    // Resolve modules using Node.js style
+    //Strict mode rules
+    "alwaysStrict": true,
+    //Enable Javascript strict mode
+    "noImplicitAny": true,
+    //Prevent fallback type any when no type is infer
+    "strictNullChecks": true,
+    //Force to deal with null and undefined
+    //"strictFunctionTypes": true, //Functions parameters will be checked more correctly
+    "strictPropertyInitialization": true,
+    //Force to initialize class properties in the constructor
+    "useUnknownInCatchVariables": true,
+    //Catch clause property will be unknown instead of any -> Force to deal with type
+    "exactOptionalPropertyTypes": false,
+    //Removes undefined from allowed types when using optional properties
+    //No unused code rules
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    //No implicit code rules
+    "noImplicitOverride": true,
+    //Force to use override keyword on methods when trying to extend an interface
+    "noImplicitReturns": true,
+    //Others
+    "noFallthroughCasesInSwitch": true,
+    //Ensures that any non-empty case inside a switch statement includes break or return
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": false,
+    //Disable .js files to be imported in .ts or .tsx files
+    "forceConsistentCasingInFileNames": true,
+    //Force to import the file by taking into account the case sensitive
+    "resolveJsonModule": true,
+    // Include modules imported with .json extension
+    "isolatedModules": true,
+    // Unconditionally emit imports for unresolved files
+    "jsx": "react-jsx",
+    //Will warn if a module can't be correctly interpreted by a single-file transpilation process
+    "skipLibCheck": true,
+    //FIXME:Doesn't compile when not activated
+    "types": ["vite/client", "node", "jest"],
+    /**
+    Path aliases configuration (don't forget to also configure Vite with these)
+    Example 1 : @routes/* (not useful) -> doesn't be imported outside of routes folder + doesn't have deep folders structure
+    Example 2 : @components/ (useful) -> can be imported in various files + components folder itself have a deep folders structure
+    */
+    "baseUrl": ".",
+    "paths": {
+      "@api/*": ["src/api/*"],
+      "@components/*": ["src/components/*"],
+      "@contexts/*": ["src/contexts/*"],
+      "@e2e/*": ["src/e2e/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+      "@routes/*": ["src/routes/*"],
+      "@stores/*": ["src/stores/*"],
+      "@styles/*": ["src/styles/*"],
+      "@translations/*": ["src/translations/*"],
+      "@appTypes/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"]
+    },
+    "experimentalDecorators": false,
+    "useDefineForClassFields": true
+  },
+  "include": ["src", ".eslintrc.json"]
+}

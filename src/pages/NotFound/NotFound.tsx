@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import styles from './NotFound.module.scss';
 
-export function NotFound() {
+export const NotFound = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -19,4 +19,4 @@ export function NotFound() {
       </Stack>
     </Box>
   );
-}
+};
