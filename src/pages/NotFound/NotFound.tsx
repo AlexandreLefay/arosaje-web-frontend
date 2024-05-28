@@ -13,7 +13,7 @@ export const NotFound = () => {
       <Stack alignItems="center" gap={2}>
         <Typography variant="h1">{t('notFound.title')}</Typography>
         <Typography variant="h6">{t('notFound.message')}</Typography>
-        <Button variant="contained" endIcon={<ArrowForward />} onClick={() => navigate('/')}>
+        <Button variant="contained" endIcon={<ArrowForward />} onClick={() => navigate('/welcome')}>
           {t('notFound.button.redirect')}
         </Button>
       </Stack>

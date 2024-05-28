@@ -4,6 +4,7 @@ import { NotFound } from '@pages/NotFound/NotFound';
 import AuthRoute from '@routes/accessHandler/AuthRoute';
 import { Welcome } from '@pages/Welcome/Welcome';
 import { Login } from '@pages/Login/Login';
+import Layout from '@routes/components/Layout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,13 +17,15 @@ const router = createBrowserRouter(
     // }}
     >
       <Route path="/login" element={<Login />} />
-      <Route element={<AuthRoute />}>
-        {/** Put here all the routes where the user must be authenticated */}
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/not-found" element={<NotFound />} />
+      <Route element={<Layout />}>
+        <Route element={<AuthRoute />}>
+          {/** Put here all the routes where the user must be authenticated */}
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/not-found" element={<NotFound />} />
+        </Route>
+        {/** Unknown path redirection */}
+        <Route path="*" element={<Unknown />} />
       </Route>
-      {/** Unknown path redirection */}
-      <Route path="*" element={<Unknown />} />
     </Route>
   )
 );

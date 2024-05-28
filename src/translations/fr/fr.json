@@ -15,5 +15,15 @@
   "language": {
     "fr": "Français",
     "en": "Anglais"
+  },
+  "login": {
+    "title": "Connexion",
+    "form": {
+      "email": "Adresse email",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "rememberMe": "Se souvenir de moi"
+    },
+    "signup": "Pas encore de compte ? Inscrivez-vous"
   }
 }

@@ -1,114 +1,100 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
+  Alert,
   Avatar,
+  Box,
   Button,
-  TextField,
-  FormControlLabel,
   Checkbox,
+  CircularProgress,
+  FormControlLabel,
+  Grid,
   Link,
   Paper,
-  Box,
-  Grid,
+  TextField,
   Typography
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '@hooks/auth/useAuth';
-import { Navigate } from 'react-router-dom'; // Assurez-vous que le chemin est correct
+import { observer } from 'mobx-react-lite';
+import { Navigate } from 'react-router-dom';
+import styles from './SignInSide.module.scss';
+import { useAuthStore } from '@hooks/contexts/useStore';
+import { login } from '@api/login/AuthAPI';
 
-export const SignInSide = () => {
+export const SignInSide = observer(() => {
   const { t } = useTranslation();
-  const { login } = useAuth();
+  const { isAuthenticated } = useAuthStore();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const email = data.get('email');
-    const password = data.get('password');
-
-    try {
-      const response = await login(email, password);
-      console.log('Login successful:', response);
-      // Vous pouvez rediriger l'utilisateur ou faire autre chose après le login réussi
-      return <Navigate to={'/welcome'} />;
-    } catch (error) {
-      console.error('Error during login:', error);
-      // Gérer l'erreur, par exemple, afficher un message d'erreur à l'utilisateur
-    }
+    setLoading(true);
+    setError(null);
+    await login(email, password);
   };
 
+  if (isAuthenticated) {
+    return <Navigate to="/welcome" />;
+  }
+
   return (
-    <Grid container component="main" sx={{ height: '100vh' }}>
-      <Grid
-        item
-        xs={false}
-        sm={4}
-        md={7}
-        sx={{
-          backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: (t) => (t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900]),
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      />
+    <Grid container component="main" className={styles.container}>
+      <Grid item xs={false} sm={4} md={7} className={`${styles.background}`} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-        <Box
-          sx={{
-            my: 8,
-            mx: 4,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+        <Box className={styles.paper}>
+          <Avatar className={styles.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            {t('Sign in')}
+            {t('login.title')}
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <Box component="form" noValidate onSubmit={handleSubmit} className={styles.form}>
             <TextField
               margin="normal"
               required
               fullWidth
               id="email"
-              label={t('Email Address')}
+              label={t('login.form.email')}
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
               required
               fullWidth
               name="password"
-              label={t('Password')}
+              label={t('login.form.password')}
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <FormControlLabel control={<Checkbox value="remember" color="primary" />} label={t('Remember me')} />
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-              {t('Sign In')}
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label={t('login.form.rememberMe')}
+            />
+            {error && <Alert severity="error">{error}</Alert>}
+            <Button type="submit" fullWidth variant="contained" className={styles.submit} disabled={loading}>
+              {loading ? <CircularProgress size={24} /> : t('login.form.submit')}
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  {t('Forgot password?')}
-                </Link>
-              </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
-                  {t("Don't have an account? Sign Up")}
+                  {t('login.signup')}
                 </Link>
               </Grid>
             </Grid>
-            <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 5 }}>
+            <Typography variant="body2" color="text.secondary" align="center" className={styles.copyright}>
               {'Copyright © '}
-              <Link color="inherit" href="https://mui.com/">
-                Your Website
+              <Link color="inherit" href="alexandrelefay.com">
+                Alexandre Lefay
               </Link>{' '}
               {new Date().getFullYear()}
               {'.'}
@@ -118,4 +104,4 @@ export const SignInSide = () => {
       </Grid>
     </Grid>
   );
-};
+});
