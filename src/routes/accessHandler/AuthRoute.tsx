@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '@hooks/auth/useAuth';
 
 /**
  * Component used to handle the authentication of the user before loading the routes
@@ -7,14 +8,14 @@ import { Navigate, Outlet } from 'react-router-dom';
  */
 const AuthRoute = observer(() => {
   /**
-   * Check if the user is authenticated (Currently hardcoded to false but should be replaced with a real check with useStore())
+   * Check if the user is authenticated
    */
-  const [isAuthenticated] = [false];
-  if (isAuthenticated) {
-    return <Outlet />;
-  }
+  const { isAuthenticated } = useAuth();
 
-  return <Navigate to={'/welcome'} />;
+  if (!isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
+  return <Outlet />;
 });
 
 export default AuthRoute;

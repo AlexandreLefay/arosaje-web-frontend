@@ -1,8 +1,9 @@
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { Unknown } from '@pages/Unknown/Unknown';
 import { NotFound } from '@pages/NotFound/NotFound';
-import { Welcome } from '@pages/Welcome/Welcome';
 import AuthRoute from '@routes/accessHandler/AuthRoute';
+import { Welcome } from '@pages/Welcome/Welcome';
+import { Login } from '@pages/Login/Login';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,10 +15,10 @@ const router = createBrowserRouter(
     //   return null;
     // }}
     >
-      <Route path="/welcome" element={<Welcome />} />
+      <Route path="/login" element={<Login />} />
       <Route element={<AuthRoute />}>
         {/** Put here all the routes where the user must be authenticated */}
-        {/*<Route path="/" element={<Welcome />} />*/}
+        <Route path="/welcome" element={<Welcome />} />
         <Route path="/not-found" element={<NotFound />} />
       </Route>
       {/** Unknown path redirection */}
