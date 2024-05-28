@@ -1,12 +1,16 @@
 import { Button, Stack, Typography } from '@mui/material';
 import { availableLanguages } from '@utils/constants/AvailableLanguages';
 import { useTranslation } from 'react-i18next';
+import { useAuthStore } from '@hooks/contexts/useStore';
+import { observer } from 'mobx-react-lite';
+import { Navigate } from 'react-router-dom';
 
 /**
  * Page that contains all the components displayed on the application homepage
  */
-export const Welcome = () => {
+export const Welcome = observer(() => {
   const { t, i18n } = useTranslation();
+  const authStore = useAuthStore();
 
   /**
    * Handle the translation of our app by giving the corresponding language key
@@ -17,6 +21,10 @@ export const Welcome = () => {
       i18n.changeLanguage(lng);
     }
   };
+
+  if (!authStore.isAuthenticated) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <>
@@ -37,4 +45,4 @@ export const Welcome = () => {
       </Stack>
     </>
   );
-};
+});
