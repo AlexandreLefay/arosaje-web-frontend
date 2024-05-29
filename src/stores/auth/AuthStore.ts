@@ -5,23 +5,22 @@ export default class AuthStore {
   @observable accessor user: TUser | null = null;
 
   constructor() {
-    this.user = null;
-    // this.loadUserFromLocalStorage();
+    this.loadUserFromLocalStorage();
   }
 
   @computed
-  get isAuthenticated() {
+  get isAuthenticated(): boolean {
     return !!this.user;
   }
 
-  // @computed
-  // loadUserFromLocalStorage() {
-  //   const user = localStorage.getItem('CURRENT_USER');
-  //   const token = localStorage.getItem('ACCESS_TOKEN');
-  //   if (user && token) {
-  //     this.user = JSON.parse(user) as TUser;
-  //   }
-  // }
+  @action.bound
+  loadUserFromLocalStorage() {
+    const user = localStorage.getItem('CURRENT_USER');
+    const token = localStorage.getItem('ACCESS_TOKEN');
+    if (user && token) {
+      this.setCurrentUser(JSON.parse(user), token);
+    }
+  }
 
   @action.bound
   setCurrentUser(currentUser: TUser, token: string) {

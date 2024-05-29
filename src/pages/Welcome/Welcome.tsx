@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '@hooks/contexts/useStore';
 import { observer } from 'mobx-react-lite';
 import { Navigate } from 'react-router-dom';
+import styles from './Welcome.module.scss';
 
 /**
  * Page that contains all the components displayed on the application homepage
@@ -28,8 +29,7 @@ export const Welcome = observer(() => {
 
   return (
     <>
-      <Typography variant="h2">{t('common.message.welcome')}</Typography>
-      <Stack direction="column" spacing={2}>
+      <Stack direction="column" spacing={2} className={styles.language}>
         <Stack direction="row" spacing={2} alignItems="center">
           <Typography variant="h6">{t('common.message.selectLanguage')} :</Typography>
           {availableLanguages.map((lng) => (

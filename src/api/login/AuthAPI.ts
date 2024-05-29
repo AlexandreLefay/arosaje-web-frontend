@@ -26,12 +26,3 @@ export const login = async (username: string, password: string): Promise<LoginRe
 export const logout = () => {
   clearCurrentUser();
 };
-
-// export const logout = async (): Promise<void> => {
-//   try {
-//     await HttpClient.post('/logout');
-//   } catch (error) {
-//     console.error('Error during logout:', error);
-//     throw error;
-//   }
-// };
