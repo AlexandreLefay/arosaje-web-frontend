@@ -8,14 +8,7 @@ import Layout from '@routes/components/Layout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route
-    // element={<Layout />}
-    // loader={() => {
-    //   /* Try to authenticate the user before loading routes */
-    //   loadCurrentUser();
-    //   return null;
-    // }}
-    >
+    <Route>
       <Route path="/login" element={<Login />} />
       <Route element={<Layout />}>
         <Route element={<AuthRoute />}>

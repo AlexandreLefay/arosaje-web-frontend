@@ -25,5 +25,12 @@
       "rememberMe": "Se souvenir de moi"
     },
     "signup": "Pas encore de compte ? Inscrivez-vous"
+  },
+  "menu": {
+    "plant": "MES PLANTES",
+    "guard": "GARDES",
+    "ticket": "TICKETS",
+    "profile": "Profil",
+    "logout": "Déconnexion"
   }
 }

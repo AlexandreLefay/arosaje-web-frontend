@@ -38,7 +38,7 @@ This project follows a specific structure for organization and ease of navigatio
         - 📄 `{ComponentName}.module.scss`: The component's style file, scoped to the component.
     - 📁 `pages`: This directory contains React pages. The business logic is in the components.
     - 📁 `routes`: This directory contains the routes (react-router).
-    - 📁 `stores`: This directory contains the store keys (react-query).
+    - 📁 `stores`: This directory contains the store keys (mobx).
     - 📁 `styles`: This directory contains global styles (variables, theme, etc.).
     - 📁 `translations`: This directory contains translations (i18n).
     - 📁 `types`: This directory contains all types.
