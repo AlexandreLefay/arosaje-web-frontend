@@ -5,6 +5,7 @@ import AuthRoute from '@routes/accessHandler/AuthRoute';
 import { Welcome } from '@pages/Welcome/Welcome';
 import { Login } from '@pages/Login/Login';
 import Layout from '@routes/components/Layout';
+import { Plant } from '@pages/Plant/Plant';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +15,7 @@ const router = createBrowserRouter(
         <Route element={<AuthRoute />}>
           {/** Put here all the routes where the user must be authenticated */}
           <Route path="/welcome" element={<Welcome />} />
+          <Route path="/plants" element={<Plant />} />
           <Route path="/not-found" element={<NotFound />} />
         </Route>
         {/** Unknown path redirection */}

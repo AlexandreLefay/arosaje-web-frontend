@@ -1,7 +1,7 @@
 import axios, { InternalAxiosRequestConfig } from 'axios';
 
 //##TODO FIX baseURL: `${import.meta.env.VITE_API_URL}`
-const BASE_URL = `${import.meta.env.VITE_API_URL}`;
+const BASE_URL = 'http://localhost:9000/api';
 
 if (!BASE_URL) {
   throw new Error('BASE_URL is not defined. Please check your .env files.');

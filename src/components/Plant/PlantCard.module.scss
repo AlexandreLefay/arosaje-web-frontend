@@ -1,0 +1,19 @@
+@import '../../styles/colors.module';
+
+.container {
+  margin: 0 20px;
+
+  .plantCard {
+    background-color: $plant-card-background;
+    width: 280px;
+    margin: auto;
+  }
+
+  .avatar {
+    background-color: $primary;
+  }
+
+  .cardMedia {
+    height: 150px;
+  }
+}

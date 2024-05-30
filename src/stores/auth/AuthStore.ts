@@ -35,4 +35,9 @@ export default class AuthStore {
     localStorage.removeItem('CURRENT_USER');
     localStorage.removeItem('ACCESS_TOKEN');
   }
+
+  @action.bound
+  getUser() {
+    return this.user;
+  }
 }
