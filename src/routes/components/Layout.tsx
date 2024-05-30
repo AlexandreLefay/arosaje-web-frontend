@@ -4,6 +4,7 @@ import styles from './Layout.module.scss';
 import { observer } from 'mobx-react-lite';
 import { useAuthStore } from '@hooks/contexts/useStore';
 import { Navbar } from '@components/global/Navigation/Navbar';
+import { Footer } from '@components/global/Navigation/Footer';
 
 /**
  * Helper component that allows the page to display the Header and the Routes in the App component
@@ -16,6 +17,7 @@ const Layout = observer(() => {
     return (
       <main>
         <Outlet />
+        <Footer />
       </main>
     );
   }
@@ -26,6 +28,7 @@ const Layout = observer(() => {
         <main className={styles.pageContainer}>
           <Navbar />
           <Outlet />
+          <Footer />
         </main>
       </Stack>
     </>

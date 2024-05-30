@@ -1,4 +1,4 @@
-import { SignInSide } from '@components/login/SignInSide';
+import { SignInSide } from '@components/Login/SignInSide';
 
 /**
  * Page that contains all the components displayed on the application homepage

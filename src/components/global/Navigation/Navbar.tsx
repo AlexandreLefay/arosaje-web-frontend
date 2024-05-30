@@ -17,6 +17,7 @@ import CardContent from '@mui/material/CardContent';
 import styles from './Navbar.module.scss';
 import { logout } from '@api/login/AuthAPI';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Navbar component that renders the application's navigation bar.
@@ -27,12 +28,13 @@ export const Navbar = (): JSX.Element => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   /**
    * Used to store the pages and settings that will be displayed in the navigation bar.
    */
   const pages = [
-    { route: '/mes-plantes', name: t('menu.plant'), image: '/assets/menu/plant.png' },
+    { route: '/plants', name: t('menu.plant'), image: '/assets/menu/plant.png' },
     { route: '/gardes', name: t('menu.guard'), image: '/assets/menu/guard.png' },
     { route: '/tickets', name: t('menu.ticket'), image: '/assets/menu/gant.png' }
   ];
@@ -78,8 +80,7 @@ export const Navbar = (): JSX.Element => {
     <AppBar position="static">
       <Container maxWidth="xl" className={styles.container}>
         <Toolbar disableGutters>
-          <YardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-
+          <YardIcon className={styles.icon} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Box className={`${styles.navMenu} ${styles.mobile}`}>
             <IconButton
               size="large"
@@ -120,11 +121,7 @@ export const Navbar = (): JSX.Element => {
           <YardIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Box className={styles.navMenu} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <ButtonBase
-                key={page.name}
-                onClick={() => (window.location.href = page.route)}
-                className={styles.cardButton}
-              >
+              <ButtonBase key={page.name} onClick={() => navigate(page.route)} className={styles.cardButton}>
                 <Card className={styles.card}>
                   <CardContent className={styles.test}>
                     <img src={page.image} alt={page.name} className={styles.plantImage} />
