@@ -1,13 +1,22 @@
-//@use '@styles/variables.module.scss';
-//@use '@styles/colors.module.scss';
-//@use '@styles/mixins.module.scss';
+@use '@styles/variables.module.scss';
+@use '@styles/colors.module.scss';
 
 .pageContainer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   min-height: 100vh;
-  //padding: variables.$app-page-padding;
+  width: 100%;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
+  width: 100%;
+  padding: 32px;
+}
+
+.footer {
   width: 100%;
 }

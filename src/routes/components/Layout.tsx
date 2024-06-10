@@ -11,28 +11,30 @@ import { Footer } from '@components/global/Navigation/Footer';
  * @returns The header and the route where the user is.
  */
 const Layout = observer(() => {
-  const { isAuthenticated } = useAuthStore();
+    const { isAuthenticated } = useAuthStore();
 
-  if (!isAuthenticated) {
+    if (!isAuthenticated) {
+        return (
+            <div className={styles.pageContainer}>
+                <main className={styles.mainContent}>
+                    <Outlet />
+                </main>
+                <Footer />
+            </div>
+        );
+    }
+
     return (
-      <main>
-        <Outlet />
-        <Footer />
-      </main>
+        <Stack direction="row">
+            <div className={styles.pageContainer}>
+                <Navbar/>
+                <main className={styles.mainContent}>
+                    <Outlet/>
+                </main>
+                <Footer/>
+            </div>
+        </Stack>
     );
-  }
-
-  return (
-    <>
-      <Stack direction="row">
-        <main className={styles.pageContainer}>
-          <Navbar />
-          <Outlet />
-          <Footer />
-        </main>
-      </Stack>
-    </>
-  );
 });
 
 export default Layout;

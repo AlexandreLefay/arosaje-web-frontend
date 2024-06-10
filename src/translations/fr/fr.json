@@ -32,5 +32,9 @@
     "ticket": "TICKETS",
     "profile": "Profil",
     "logout": "Déconnexion"
+  },
+  "myPlants": {
+    "title": "Liste de vos plantes",
+    "caring": "Entretien :"
   }
 }
