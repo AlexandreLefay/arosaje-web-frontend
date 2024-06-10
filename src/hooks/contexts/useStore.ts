@@ -16,3 +16,4 @@ export const useStore = (): RootStore => useContext(StoreContext);
  * To avoid to call all the stores to get only one, we use this hook
  */
 export const useAuthStore = () => useStore().authStore;
+export const usePlantStore = () => useStore().plantStore;

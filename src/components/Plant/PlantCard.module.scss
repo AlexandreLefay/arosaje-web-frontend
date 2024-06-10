@@ -1,11 +1,14 @@
 @import '../../styles/colors.module';
 
 .container {
-  margin: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
   .plantCard {
     background-color: $plant-card-background;
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     margin: auto;
   }
 
@@ -14,6 +17,7 @@
   }
 
   .cardMedia {
-    height: 150px;
+    height: 200px;
+    object-fit: cover;
   }
 }

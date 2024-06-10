@@ -15,8 +15,8 @@ export const NewPlantSchema = z.object({
   species: z.string(),
   careInstructions: z.string(),
   imageUrl: z.string(),
-  createdAt: z.string(),
-  updatedAt: z.string(),
+  createdAt: z.number().array(),
+  updatedAt: z.number().array(),
   userId: z.number(),
   photos: z.array(PhotoSchema)
 });

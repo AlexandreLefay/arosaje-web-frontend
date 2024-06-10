@@ -27,11 +27,15 @@
     "signUp": "Don't have an account ? Sign up"
   },
   "menu": {
-    "plant": "MY PLANTES",
+    "plant": "MY PLANTS",
     "guard": "GUARDS",
     "ticket": "TICKETS",
     "profile": "Profil",
     "logout": "Logout"
+  },
+  "myPlants": {
+    "title": "List of your plants",
+    "caring": "Caring :"
   }
 }
 
