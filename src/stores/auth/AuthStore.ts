@@ -23,6 +23,13 @@ export default class AuthStore {
   }
 
   @action.bound
+  setAuth0CurrentUser(userAuth0: TUser, token: string) {
+    this.user = userAuth0;
+    localStorage.setItem('CURRENT_USER', JSON.stringify(userAuth0));
+    localStorage.setItem('ACCESS_TOKEN', token);
+  }
+
+  @action.bound
   setCurrentUser(currentUser: TUser, token: string) {
     this.user = currentUser;
     localStorage.setItem('CURRENT_USER', JSON.stringify(currentUser));
@@ -34,6 +41,7 @@ export default class AuthStore {
     this.user = null;
     localStorage.removeItem('CURRENT_USER');
     localStorage.removeItem('ACCESS_TOKEN');
+    localStorage.removeItem('PHOTO_URL');
   }
 
   @action.bound
