@@ -20,6 +20,8 @@ import { Navigate } from 'react-router-dom';
 import styles from './SignInSide.module.scss';
 import { useAuthStore } from '@hooks/contexts/useStore';
 import { login } from '@api/login/AuthAPI';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Footer } from '@components/global/Navigation/Footer';
 
 export const SignInSide = observer(() => {
   const { t } = useTranslation();
@@ -28,23 +30,31 @@ export const SignInSide = observer(() => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { isAuthenticated: isAuth0Authenticated, loginWithRedirect } = useAuth0();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
     setError(null);
-    await login(email, password);
+    try {
+      await login(email, password);
+    } catch (err) {
+      setError('Login failed. Please check your credentials and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
-  if (isAuthenticated) {
+  if (isAuthenticated || isAuth0Authenticated) {
     return <Navigate to="/welcome" />;
   }
 
   return (
     <Grid container component="main" className={styles.container}>
-      <Grid item xs={false} sm={4} md={7} className={`${styles.background}`} />
+      <Grid item xs={false} sm={4} md={7} className={styles.background} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <Box className={styles.paper}>
+          <Footer />
           <Avatar className={styles.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -100,6 +110,15 @@ export const SignInSide = observer(() => {
               {'.'}
             </Typography>
           </Box>
+          <Button
+            fullWidth
+            variant="outlined"
+            color="primary"
+            onClick={() => loginWithRedirect()}
+            className={styles.googleButton}
+          >
+            {t('login.form.loginGoogle')}
+          </Button>
         </Box>
       </Grid>
     </Grid>

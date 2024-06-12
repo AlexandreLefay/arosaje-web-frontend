@@ -23,6 +23,6 @@ export const login = async (username: string, password: string): Promise<LoginRe
   }
 };
 
-export const logout = () => {
+export const logoutAPI = () => {
   clearCurrentUser();
 };

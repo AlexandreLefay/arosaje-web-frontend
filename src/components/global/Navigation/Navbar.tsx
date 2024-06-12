@@ -15,9 +15,10 @@ import YardIcon from '@mui/icons-material/Yard';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import styles from './Navbar.module.scss';
-import { logout } from '@api/login/AuthAPI';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { logoutAPI } from '@api/login/AuthAPI';
+import { useAuth0 } from '@auth0/auth0-react';
 
 /**
  * Navbar component that renders the application's navigation bar.
@@ -29,6 +30,13 @@ export const Navbar = (): JSX.Element => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { logout, user } = useAuth0();
+  const handleLogout = async () => {
+    logout();
+    await logoutAPI();
+  };
+
+  const photoUrl = localStorage.getItem('PHOTO_URL') || user?.picture || '/static/images/avatar/2.jpg';
 
   /**
    * Used to store the pages and settings that will be displayed in the navigation bar.
@@ -41,7 +49,7 @@ export const Navbar = (): JSX.Element => {
 
   const settings = [
     { name: t('menu.profile'), action: () => console.log('Profil...') },
-    { name: t('menu.logout'), action: logout }
+    { name: t('menu.logout'), action: handleLogout }
   ];
 
   /**
@@ -137,7 +145,7 @@ export const Navbar = (): JSX.Element => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} className={styles.avatar}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="User Photo" src={photoUrl} />
               </IconButton>
             </Tooltip>
             <Menu
