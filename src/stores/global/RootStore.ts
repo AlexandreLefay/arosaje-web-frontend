@@ -1,5 +1,5 @@
 import AuthStore from '@stores/auth/AuthStore';
-import PlantStore from "@stores/plant/PlantStore";
+import PlantStore from '@stores/plant/PlantStore';
 
 /**
  * Create a root store, that will contain all the stores
