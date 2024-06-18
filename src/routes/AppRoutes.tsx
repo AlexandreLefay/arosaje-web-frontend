@@ -7,7 +7,6 @@ import { Login } from '@pages/Login/Login';
 import Layout from '@routes/components/Layout';
 import { Plant } from '@pages/Plant/Plant';
 import { Auth0Provider } from '@auth0/auth0-react';
-import { CallbackAuth0 } from '@pages/Callback/CallbackAuth0';
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN;
 const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
@@ -20,8 +19,9 @@ const providerConfig = {
   domain,
   clientId,
   authorizationParams: {
+    audience: 'https://alex-audience/',
     // eslint-disable-next-line camelcase
-    redirect_uri: `${window.location.origin}/callback`
+    redirect_uri: `${window.location.origin}/welcome`
   }
 };
 
@@ -29,7 +29,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/login" element={<Login />} />
-      <Route path="/callback" element={<CallbackAuth0 />} />
       <Route element={<Layout />}>
         <Route element={<AuthRoute />}>
           {/** Put here all the routes where the user must be authenticated */}
