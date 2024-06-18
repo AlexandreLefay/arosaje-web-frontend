@@ -1,15 +1,34 @@
 import { action, observable } from 'mobx';
-import { TNewPlant } from '@appTypes/plant/Plant';
+
+export interface PlantData {
+  id: number;
+  name: string;
+  species: string;
+  careInstructions: string;
+  imageUrl?: string;
+  createdAt?: number[];
+  updatedAt?: number[];
+  userId: number;
+  photos?: {
+    id: number;
+    createdAt: string;
+    userId: number;
+    ticketCommentId: number;
+    plantId: number;
+    imageBlob: string[];
+  }[];
+}
 
 export default class PlantStore {
-  @observable accessor plants: TNewPlant[];
+  @observable accessor plants: PlantData[] = [];
 
-  constructor() {
-    this.plants = [];
+  @action.bound
+  setPlants(plants: PlantData[]): void {
+    this.plants = plants;
   }
 
   @action.bound
-  setPlants(plants: TNewPlant[]): void {
-    this.plants = plants;
+  addPlant(plant: PlantData): void {
+    this.plants.push(plant);
   }
 }

@@ -1,51 +1,27 @@
 import { action, computed, observable } from 'mobx';
-import { TUser } from '@appTypes/user/User';
 
 export default class AuthStore {
-  @observable accessor user: TUser | null = null;
+  @observable accessor userId: number | null = null;
+  @observable accessor token: string | null = null;
 
-  constructor() {
-    this.loadUserFromLocalStorage();
-  }
+  // constructor() {
+  //   // this.loadUserFromLocalStorage();
+  // }
 
   @computed
   get isAuthenticated(): boolean {
-    return !!this.user;
+    return !!this.userId;
   }
 
   @action.bound
-  loadUserFromLocalStorage() {
-    const user = localStorage.getItem('CURRENT_USER');
-    const token = localStorage.getItem('ACCESS_TOKEN');
-    if (user && token) {
-      this.setCurrentUser(JSON.parse(user), token);
-    }
-  }
-
-  @action.bound
-  setAuth0CurrentUser(userAuth0: TUser, token: string) {
-    this.user = userAuth0;
-    localStorage.setItem('CURRENT_USER', JSON.stringify(userAuth0));
-    localStorage.setItem('ACCESS_TOKEN', token);
-  }
-
-  @action.bound
-  setCurrentUser(currentUser: TUser, token: string) {
-    this.user = currentUser;
-    localStorage.setItem('CURRENT_USER', JSON.stringify(currentUser));
-    localStorage.setItem('ACCESS_TOKEN', token);
+  setAuth0CurrentUser(userId: number, token: string) {
+    this.userId = userId;
+    this.token = token;
   }
 
   @action.bound
   clearCurrentUser() {
-    this.user = null;
-    localStorage.removeItem('CURRENT_USER');
-    localStorage.removeItem('ACCESS_TOKEN');
-    localStorage.removeItem('PHOTO_URL');
-  }
-
-  @action.bound
-  getUser() {
-    return this.user;
+    this.userId = null;
+    this.token = null;
   }
 }

@@ -4,20 +4,42 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 16px;
 
   .plantCard {
     background-color: $plant-card-background;
     width: 100%;
-    max-width: 280px;
     margin: auto;
   }
+}
 
-  .avatar {
-    background-color: $primary;
-  }
+.gridItem {
+  width: 100%;
+  max-width: 280px;
+}
 
-  .cardMedia {
-    height: 200px;
-    object-fit: cover;
-  }
+
+.avatar {
+  background-color: $primary;
+}
+
+.cardMedia {
+  height: 300px;
+  object-fit: cover;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.sortControl {
+  min-width: 120px;
+}
+
+.paginationControls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
 }

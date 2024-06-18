@@ -1,46 +1,17 @@
-/* SignInSide.module.scss */
-
 .container {
-  height: 100vh;
-}
-
-.background {
-  background-image: url('https://www.jardiner-malin.fr/wp-content/uploads/2019/05/Faire-un-bonsai-conseil-debutant.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  &.light {
-    background-color: #f5f5f5;
-  }
-
-  &.dark {
-    background-color: #303030;
-  }
-}
-
-.paper {
-  my: 8px;
-  mx: 4px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
 }
 
-.avatar {
-  m: 1px;
-  background-color: #ff5722;
+.card {
+  max-width: 400px;
+  padding: 24px;
 }
 
-.form {
-  mt: 1px;
-}
-
-.submit {
-  mt: 3px;
-  mb: 2px;
-}
-
-.copyright {
-  mt: 5px;
+.title {
+  text-align: center;
+  margin-bottom: 16px;
 }

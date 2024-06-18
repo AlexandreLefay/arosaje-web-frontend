@@ -1,8 +1,7 @@
-import { Stack } from '@mui/material';
+import { Box, CircularProgress, Stack } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import styles from './Layout.module.scss';
 import { observer } from 'mobx-react-lite';
-import { useAuthStore } from '@hooks/contexts/useStore';
 import { Navbar } from '@components/global/Navigation/Navbar';
 import { Footer } from '@components/global/Navigation/Footer';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -12,23 +11,20 @@ import { useAuth0 } from '@auth0/auth0-react';
  * @returns The header and the route where the user is.
  */
 const Layout = observer(() => {
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, isLoading } = useAuth0();
 
-  if (!isAuthenticated && !useAuth0().isAuthenticated) {
+  if (isLoading) {
     return (
-      <div className={styles.pageContainer}>
-        <main className={styles.mainContent}>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+      <Box className={styles.loadingContainer}>
+        <CircularProgress />
+      </Box>
     );
   }
 
   return (
     <Stack direction="row">
       <div className={styles.pageContainer}>
-        <Navbar />
+        {isAuthenticated && <Navbar />}
         <main className={styles.mainContent}>
           <Outlet />
         </main>
