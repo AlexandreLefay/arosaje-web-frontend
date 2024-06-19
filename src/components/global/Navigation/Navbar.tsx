@@ -32,7 +32,7 @@ export const Navbar = (): JSX.Element => {
   const navigate = useNavigate();
   const { logout, user } = useAuth0();
   const handleLogout = async () => {
-    logout();
+    logout({ returnTo: window.location.origin });
     await logoutAPI();
   };
 
